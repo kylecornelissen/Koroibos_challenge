@@ -14,6 +14,10 @@ class Olympian < ApplicationRecord
     }
   end
 
+  def total_medals_won
+    medals.where("medals.name != 'NA'").count
+  end
+
   def self.age_sorter(youngest_or_oldest, order = "DESC")
     order = "ASC" if youngest_or_oldest == "youngest"
     select(:name, :team, :age, :sport)
