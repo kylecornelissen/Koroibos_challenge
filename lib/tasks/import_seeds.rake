@@ -11,7 +11,7 @@ namespace :import do
                                              age: row["Age"],
                                              sport: row["Sport"],
                                              weight: row["Weight"],
-                                             height: row["Height"])
+                                             sex: row["Sex"])
     end
   end
 end
