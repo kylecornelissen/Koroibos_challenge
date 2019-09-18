@@ -6,8 +6,4 @@ class Api::V1::OlympiansController < ApplicationController
       render json: OlympianSerializer.new(Olympian.all)
     end
   end
-
-  def show
-    render json: OlympianSerializer.new(Olympian.find(params[:id]))
-  end
 end
