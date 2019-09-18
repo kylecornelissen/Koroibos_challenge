@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :olympians, only: [:index, :show]
       resources :events, only: [:index, :show]
+      resources :olympian
+
+      get '/olympian_stats', to: 'olympian_stats#show'
     end
   end
 end
