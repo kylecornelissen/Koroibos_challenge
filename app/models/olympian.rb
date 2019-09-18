@@ -1,4 +1,7 @@
 class Olympian < ApplicationRecord
+  has_many :olympian_events
+  has_many :medals, through: :olympian_events
+  has_many :events, through: :olympian_events
 
   def olympian_stats
     { "total_competiting_olympians" => Olympian.count,
