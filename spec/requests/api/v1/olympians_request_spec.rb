@@ -7,8 +7,12 @@ describe "Olympians API" do
     get '/api/v1/olympians'
 
     expect(response).to be_successful
-    require "pry"; binding.pry
-    # olympians = JSON.parse(response.body)["data"]
-    # expect(olympians.count).to eq(3)
+    olympians = JSON.parse(response.body)["data"]
+
+    expect(olympians.count).to eq(3)
+    expect(olympians[0]["attributes"].keys).to include("name")
+    expect(olympians[0]["attributes"].keys).to include("team")
+    expect(olympians[0]["attributes"].keys).to include("age")
+    expect(olympians[0]["attributes"].keys).to include("sport")
   end
 end
