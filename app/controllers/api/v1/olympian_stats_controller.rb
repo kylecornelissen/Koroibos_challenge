@@ -1,5 +1,5 @@
 class Api::V1::OlympianStatsController < ApplicationController
-  def show
+  def index
     render json: OlympianStatsSerializer.new(Olympian.first)
   end
 end

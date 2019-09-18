@@ -7,11 +7,12 @@ RSpec.describe Sport, type: :model do
 
   describe 'class methods' do
     it '.order_events' do
-      e1 = create(:event, name: 'c')
-      e2 = create(:event, name: 'a')
-      e3 = create(:event, name: 'b')
+      e1 = create(:sport, name: 'c')
+      e2 = create(:sport, name: 'a')
+      e3 = create(:sport, name: 'b')
+      sports = Sport.all
 
-      expect(events.order_events).to eq([e2,e3,e1])
+      expect(sports.order_events).to eq([e2,e3,e1])
     end
   end
 end
