@@ -13,6 +13,12 @@ RSpec.describe Olympian, type: :model do
       @o2 = create(:olympian, name: 'Sophomore', age: '28', weight: 109, sex: "F")
       @o3 = create(:olympian, name: 'Junior', age: '33', weight: 158, sex: "M")
       @o4 = create(:olympian, name: 'Senior', age: '45', weight: 208, sex: "F")
+      @m1 = create(:medal, name: 'Silver')
+      @m2 = create(:medal, name: 'Gold')
+      @m3 = create(:medal, name: 'NA')
+      @oe1 = create(:olympian_event, olympian: @o1, medal: @m1)
+      @oe2 = create(:olympian_event, olympian: @o1, medal: @m2)
+      @oe3 = create(:olympian_event, olympian: @o1, medal: @m3)
       @olympians = Olympian.all
     end
 
@@ -27,6 +33,10 @@ RSpec.describe Olympian, type: :model do
                     }
 
       expect(@o1.olympian_stats).to eq(hash_result)
+    end
+
+    it '.total_medals_won' do
+      expect(@o1.total_medals_won).to eq(2)
     end
   end
 
