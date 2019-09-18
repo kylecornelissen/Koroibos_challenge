@@ -14,6 +14,7 @@ describe "Olympians API" do
     expect(olympians[0]["attributes"].keys).to include("team")
     expect(olympians[0]["attributes"].keys).to include("age")
     expect(olympians[0]["attributes"].keys).to include("sport")
+    expect(olympians[0]["attributes"].keys).to include("total_medals_won")
   end
 
   it "shows youngest olympian" do
