@@ -12,6 +12,13 @@ namespace :import do
                                              sport: row["Sport"],
                                              weight: row["Weight"],
                                              sex: row["Sex"])
+      sport = Sport.find_or_create_by!(name: row["Sport"] )
+      event = Event.find_or_create_by!(name: row["Event"],
+                                       sport: sport)
+      medal = Medal.find_or_create_by!(name: row["Medal"])
+      olympian_event = OlympianEvent.find_or_create_by!(olympian: olympian,
+                                                        event: event,
+                                                        medal: medal)
     end
   end
 end
